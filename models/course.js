@@ -9,7 +9,11 @@ const course = new Schema({
     type:String,
     required: true
   },
-  url: String
+  url: String,
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 })
 
 module.exports = model('Course', course)

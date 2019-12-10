@@ -14,7 +14,8 @@ router.post('/', async (req, res) => {
     const course = await new Course({
       name, 
       price, 
-      url
+      url,
+      userId: req.user
     })
   
     await course.save()

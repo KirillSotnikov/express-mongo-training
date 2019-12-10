@@ -28,8 +28,9 @@ if($card) {
               <tr>
                 <td>${c.name}</td>
                 <td>${c.count}</td>
+                <td>${c.price}</td>
                 <td>
-                  <button class="btn btn-small js-remove" data-id="${c.id}">Delete</button>
+                  <button class="btn btn-small js-remove" data-id="${c._id}">Delete</button>
                 </td>
               </tr>
               `
@@ -43,3 +44,19 @@ if($card) {
     }
   })
 }
+
+const toDate = date => {
+  return new Intl.DateTimeFormat('ru-RU', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  }).format(new Date(date))
+}
+
+
+document.querySelectorAll('.date').forEach(item => {
+  item.textContent = toDate(item.textContent)
+})
